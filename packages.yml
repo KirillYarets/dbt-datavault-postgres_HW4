@@ -1,0 +1,4 @@
+packages:
+  - git: "https://github.com/DWH-course-examples/automate-dv"
+    revision: master
+

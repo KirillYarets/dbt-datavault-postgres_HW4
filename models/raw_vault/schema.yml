@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: raw_vault
+    database: postgres
+    schema: dbt
+    tables:
+      - name: hub_customer
+      - name: hub_order
+      - name: link_customer_order
+      - name: sat_customer
+      - name: sat_order

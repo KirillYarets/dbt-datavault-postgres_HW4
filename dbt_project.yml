@@ -1,0 +1,42 @@
+name: jaffle_shop_dbtvault
+profile: jaffle_shop
+version: '0.1.0'
+require-dbt-version: ['>=1.4.0', '<1.5.0']
+config-version: 2
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+target-path: target
+
+vars:
+  load_date: 'current_timestamp'
+
+models:
+  jaffle_shop_dbtvault:
+    stage:
+      tags:
+        - 'stage'
+      materialized: view
+    cdm:
+      tags:
+        - 'marts'
+    business_vault:
+      tags:
+        - 'business_vault'
+    raw_vault:
+      tags:
+        - 'raw_vault'
+      materialized: incremental
+      hubs:
+        tags:
+          - 'hub'
+      links:
+        tags:
+          - 'link'
+      sats:
+        tags:
+          - 'satellite'
